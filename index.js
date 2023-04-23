@@ -51,7 +51,11 @@ function handleSubmit(e) {
 }
 
 function resetScore() {
-  if (confirm("Are you sure you want to reset your score to 0?")) {
+  if (confirm(`
+    Are you sure you want to reset your score to 0?
+     - Purchase the same amount of liquid fund
+     - Then Press ok
+  `)) {
     localStorage.setItem("score", 0);
     location.reload();
   }
