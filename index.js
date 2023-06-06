@@ -2,7 +2,7 @@ let productiveActivities = [
   {
     label: "Reading Time",
     id: "book",
-    rate: 100,
+    rate: 50,
   },
   {
     label: "Learning Coding Skill",
@@ -13,7 +13,12 @@ let productiveActivities = [
     label: "Investment Planning",
     id: "investment",
     rate: 200,
-  }
+  },
+  {
+    label: "Gym Timing",
+    id: "gym",
+    rate: 50,
+  },
 ];
 
 const activitiesHTML = productiveActivities
@@ -39,9 +44,13 @@ function handleSubmit(e) {
   let activityTime = 0;
   for (let i = 0; i < productiveActivities.length; i++) {
     const activity = productiveActivities[i];
-    let time = parseInt(document.getElementById(activity.id).value);
-    activityTime += time * activity.rate;
+    if (document.getElementById(activity.id).value != "") {
+      let time = parseInt(document.getElementById(activity.id).value);
+      console.log(time);
+      activityTime += time * activity.rate;
+    }
   }
+  console.log(activityTime);
   const currentScore = parseInt(document.getElementById("score").textContent);
   const totalTime = currentScore + activityTime;
   document.getElementById("score").textContent = totalTime;
@@ -51,16 +60,17 @@ function handleSubmit(e) {
 }
 
 function resetScore() {
-  if (confirm(`
+  if (
+    confirm(`
     Are you sure you want to reset your score to 0?
      - Purchase the same amount of liquid fund
      - Then Press ok
-  `)) {
+  `)
+  ) {
     localStorage.setItem("score", 0);
     location.reload();
   }
 }
-
 
 function loadData() {
   let score = localStorage.getItem("score");
