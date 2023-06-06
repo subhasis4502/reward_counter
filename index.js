@@ -48,6 +48,7 @@ function handleSubmit(e) {
       let time = parseInt(document.getElementById(activity.id).value);
       console.log(time);
       activityTime += time * activity.rate;
+      document.getElementById(activity.id).value = "";
     }
   }
   console.log(activityTime);
