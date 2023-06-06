@@ -1,13 +1,13 @@
 let productiveActivities = [
   {
-    label: "Reading Time",
+    label: "Reading Pages",
     id: "book",
-    rate: 50,
+    rate: 10,
   },
   {
-    label: "Learning Coding Skill",
+    label: "Learning Coding Skill(videoes)",
     id: "coding",
-    rate: 150,
+    rate: 10,
   },
   {
     label: "Investment Planning",
